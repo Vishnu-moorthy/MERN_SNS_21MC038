@@ -1,0 +1,148 @@
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .main>div{
+            border: 3px solid;
+        }
+        .main{
+            display: grid;
+        border: 2px solid black;
+            grid-template-columns: 2fr 6fr 2fr;
+            grid-template-rows: repeat(3,2fr,4fr);
+            grid-template-areas: 
+            'header header header'
+            'footer footer footer'
+            'sidebar sidebar';
+        }
+        .header{
+            grid-area: header;
+        }
+        .footer{
+            grid-area: footer;
+        }
+        .sidebar{
+            grid-area: sidebar;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="header">Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, adipisci.</div>
+        <div class="footer">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nostrum, ut?</div>
+        <div class="sidebar">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere, quam!</div>
+
+    </div>
+</body>
+</html> -->
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .grid{
+            display: grid;
+            grid-template-columns: repeat(4,2fr);
+            grid-template-rows: repeat(6,2fr);
+            width: 200px;
+            height: 300px;
+            align-content: center;
+            gap: 5px;
+            background-color:crimson;
+            padding: 10px;
+            border-radius: 30px;
+        }
+        .zero{
+            grid-row: 6/7;
+            grid-column: 1/3;
+        }
+        button{
+            border: none;
+            border-color: black;
+            border-radius: 70px;
+            color: white;
+            background-color: grey;
+            font-weight: 800;
+        }
+        .equal{
+            background-color: orange;
+        }
+        .but{
+            grid-column: 1/5;
+            grid-row: 1/2;
+            background-color: black;
+            border: none;
+            color: wheat;
+        }
+        p{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size:  50px; 
+            text-align: center;
+        }
+        #id{
+            text-align:right;
+        }
+    </style>
+</head>
+<body>
+    <p>CALCULATOR</p>
+    <pre>
+        <center>
+    <div class="grid">
+    <button class="but" ><input id="id" class="but" type="text" ></button>
+    <button id="ac" onclick="ac()">AC</button>
+    <button id="!" onclick="per()">%</button>
+    <button id="!" onclick="blah()">x</button>
+    <button id="/" onclick="appendToDisplay('/')">/</button>
+    <button id="7" onclick="appendToDisplay('7')">7</button>
+    <button id="8" onclick="appendToDisplay('8')">8</button>
+    <button id="9" onclick="appendToDisplay('9')">9</button>
+    <button id="*" onclick="appendToDisplay('*')">*</button>
+    <button id="4" onclick="appendToDisplay('4')">4</button>
+    <button id="5" onclick="appendToDisplay('5')">5</button>
+    <button id="6" onclick="appendToDisplay('6')">6</button>
+    <button id="-" onclick="appendToDisplay('-')">-</button>
+    <button id="1" onclick="appendToDisplay('1')">1</button>
+    <button id="2" onclick="appendToDisplay('2')">2</button>
+    <button id="3" onclick="appendToDisplay('3')">3</button>
+    <button id="+" onclick="appendToDisplay('+')">+</button>
+    <button id="0" class="zero" onclick="appendToDisplay('0')">0</button>
+    <button id="." onclick="appendToDisplay('.')">.</button>
+    <button id="!" onclick="equal()" class="equal">=</button>
+    </div>
+</center>
+</pre>
+<script>
+    var disp = document.getElementById('id');
+    function appendToDisplay(value){
+        console.log("success")
+        disp.value+=value;
+    }
+    function equal(){
+        var eqn = disp.value;
+        disp.value = eval(eqn);
+    }
+    function blah(){
+        var val = disp.value;
+        disp.value = val.slice(0,-1);
+    }
+    function ac(){
+        disp.value = '';
+    }
+    function per(){
+        var val1 = disp.value;
+        disp.value = val1/100;
+    }
+
+</script>
+</body>
+</html>
