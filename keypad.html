@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: grid;
+            place-items: center;
+        }
+
+        .keypad {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .btn {
+            background-color: orange;
+            color: white;
+            border: none;
+            border-radius: 7px;
+            margin: 0.5px;
+            width: 40px;
+            height: 40px;
+        }
+
+        .del,
+        .shift,
+        .space,
+        .enter,
+        .num {
+            background-color: coral;
+            color: white;
+            border: none;
+            border-radius: 7px;
+            margin: 0.5px;
+            height: 40px;
+            width: 60px;
+            text-transform: capitalize;
+        }
+
+        .space {
+            width: 320px;
+            margin-top: 8px;
+        }
+
+        .enter,
+        .num{
+            background-color:crimson;
+        }
+
+        .text {
+            display: flex;
+            width: 100%;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+
+        textarea {
+            width: 100%;
+            height: 50px;
+            border-color: coral;
+            color: orange;
+            border-width: 2px;
+            font-size: 15px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="text">
+            <textarea id="id"></textarea>
+        </div>
+
+        <div class="keypad">
+            <!-- <div class="row">
+                <button class="btn" onclick="append('1')">1</button>
+                <button class="btn" onclick="append('2')">2</button>
+                <button class="btn" onclick="append('3')">3</button>
+                <button class="btn" onclick="append('4')">4</button>
+                <button class="btn" onclick="append('5')">5</button>
+                <button class="btn" onclick="append('6')">6</button>
+                <button class="btn" onclick="append('7')">7</button>
+                <button class="btn" onclick="append('8')">8</button>
+                <button class="btn" onclick="append('9')">9</button>
+                <button class="btn" onclick="append('0')">0</button>
+            </div> -->
+
+
+            <div class="row">
+                <button class="btn" onclick="append('q')">q</button>
+                <button class="btn" onclick="append('w')">w</button>
+                <button class="btn" onclick="append('e')">e</button>
+                <button class="btn" onclick="append('r')">r</button>
+                <button class="btn" onclick="append('t')">t</button>
+                <button class="btn" onclick="append('y')">y</button>
+                <button class="btn" onclick="append('u')">u</button>
+                <button class="btn" onclick="append('i')">i</button>
+                <button class="btn" onclick="append('o')">o</button>
+                <button class="btn" onclick="append('p')">p</button>
+            </div>
+
+
+            <div class="row">
+                <button class="btn" onclick="append('a')">a</button>
+                <button class="btn" onclick="append('s')">s</button>
+                <button class="btn" onclick="append('d')">d</button>
+                <button class="btn" onclick="append('f')">f</button>
+                <button class="btn" onclick="append('g')">g</button>
+                <button class="btn" onclick="append('h')">h</button>
+                <button class="btn" onclick="append('j')">j</button>
+                <button class="btn" onclick="append('k')">k</button>
+                <button class="btn" onclick="append('l')">l</button>
+            </div>
+
+            <div class="row">
+                <button class="shift" id="shift" onclick="shift()">shift</button>
+                <button class="btn" onclick="append('z')">z</button>
+                <button class="btn" onclick="append('x')">x</button>
+                <button class="btn" onclick="append('c')">c</button>
+                <button class="btn" onclick="append('v')">v</button>
+                <button class="btn" onclick="append('b')">b</button>
+                <button class="btn" onclick="append('n')">n</button>
+                <button class="btn" onclick="append('m')">m</button>
+                <button class="del" onclick="del()">del</button>
+            </div>
+
+            <div class="row">
+                <button class="num" onclick="num()">?123</button>
+                <button class="space" onclick="append(' ')">space</button>
+                <button class="enter" onclick="enter()">enter</button>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        var disp = document.getElementById('id');
+        function append(value) {
+            console.log("success")
+            disp.value += value;
+        }
+        function del() {
+            var val = disp.value;
+            disp.value = val.slice(0, -1);
+        }
+        var isShift = false;
+        function shift() {
+            isShift = !isShift;
+            var buttons = document.querySelectorAll('.btn');
+
+            buttons.forEach(button => {
+                var char = button.innerText;
+                if (isShift) {
+                    button.innerText = char.toUpperCase();
+                    button.onclick = () => append(char.toUpperCase());
+                } else {
+                    button.innerText = char.toLowerCase();
+                    button.onclick = () => append(char.toLowerCase());
+                }
+            });
+        }
+        function enter(){
+            disp.value+='\n';
+        }
+        var isNum=false;
+        function num(){
+            isNum = !isNum;
+            
+        }
+
+    </script>
+
+</body>
+
+</html>
