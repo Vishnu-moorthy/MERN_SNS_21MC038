@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="Description" content="Enter your description here"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link rel="stylesheet" href="assets/css/style.css">
+<title>Title</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="clo-md-6 offset-md-3 text-center">
+                <h1 class="display-1">STOPWATCH</h1>
+                <div class="display-1 fw-bold m-5" id="time">00:00:00</div>
+                <button id="atart" onclick="start()" class="btn btn-outline-success">START</button>
+                <button id="pause" onclick="pause()" class="btn btn-outline-warning">PAUSE</button>
+                <button id="reset" onclick="reset()" class="btn btn-outline-danger">RESET</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        let sec = 0;
+        let min = 0;
+        let hrs = 0;
+        var pau = false;
+        var b 
+
+        function time(){
+            sec++;
+             min+= Math.floor(sec/60);
+             hrs+= Math.floor(min/60);
+             sec = Math.floor(sec%60);
+             min = Math.floor(min%60);
+             hrs = Math.floor(hrs%24);
+             document.getElementById('time').innerHTML = (`${hrs}:${min}:${sec}`);
+        }
+        function start(){
+           b= setInterval(time,1);
+        }
+        function pause(){
+            clearInterval(b)
+            b=null
+
+        }
+        function reset(){
+            sec = 0;
+            min = 0;
+            hrs = 0;
+            document.getElementById('time').innerHTML = (`${hrs}:${min}:${sec}`);
+
+        }
+        
+    </script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+</body>
+</html>
