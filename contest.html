@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="Description" content="Enter your description here"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link rel="stylesheet" href="assets/css/style.css">
+<title>content</title>
+</head>
+<body>
+    <h1 class="display-1 bg-primary" id="h">SNS COLLEGE OF TECHNOLOGY</h1>
+    <p id="para" class="bg-success">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur dicta itaque, alias quis ex deserunt quo aliquid eligendi a ab!</p>
+
+    <script>
+        window.addEventListener('DOMContentLoaded',greet)
+        function greet(){
+            console.log('is an event listener');
+        }
+
+        const paraeve = document.getElementById('para');
+
+        paraeve.addEventListener('contextmenu',function (event){
+            event.preventDefault();
+            console.log(event);
+
+            console.log('rignt clicked on para');
+        });
+
+        const head =document.getElementById('h');
+        head.addEventListener('contextmenu',function (event){
+            event.preventDefault();
+            console.log(event);
+            console.log('right clicked on heading');
+        });
+    </script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+</body>
+</html>

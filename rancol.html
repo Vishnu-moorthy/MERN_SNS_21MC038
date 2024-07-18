@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,body{
+            height: 100%;
+            margin: 0;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        button {
+            border: none;
+            background-color: white;
+            border-radius: 5px;
+            height: 200px;
+            width: 200px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="a">
+        <button id="click" onclick="change()"><h1>RANDOM</h1></button>
+    </div>
+    <script>
+        function randomcolor(min,max){
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.ceil(Math.random()*(max-min+1))+min;
+        }
+        function change(){
+            var val1 = randomcolor(1,255);
+            var val2 = randomcolor(1,255);
+            var val3 = randomcolor(1,255);
+            console.log(`${val1},${val2},${val3}`);
+            console.log(val1)
+            document.body.style.backgroundColor = `rgb(${val1},${val2},${val3})`
+            var click = document.getElementById('click');
+        click.style.backgroundColor = `rgb(${val1},${val2},${val3})`;
+        }
+
+        
+    </script>
+</body>
+</html>
